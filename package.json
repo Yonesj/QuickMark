@@ -1,0 +1,124 @@
+{
+  "name": "qmark",
+  "displayName": "QuickMark",
+  "description": "QuickMark is a vscode extension that allows users to bookmark files within projects, making it easy to quickly locate frequently accessed files without searching through thousands of files in the project structure.",
+  "version": "0.0.1",
+  "publisher": "Yonesj",
+  "engines": {
+    "vscode": "^1.93.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "bookmark-explorer",
+          "title": "Bookmark Explorer",
+          "icon": "resources/bookmark.svg"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "qmark",
+        "contents": "No bookmarked file found.\n[Add Active File](command:qmark.addItem)"
+      }
+    ],
+    "views": {
+      "bookmark-explorer": [
+        {
+          "id": "qmark",
+          "name": "Bookmark Explorer",
+          "icon": "resources/bookmark.svg",
+          "contextualTitle": "Bookmark Explorer"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "qmark.refreshEntry",
+        "title": "Refresh",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "qmark.addItem",
+        "title": "Add to Bookmark Tree"
+      },
+      {
+        "command": "qmark.open1",
+        "title": "Open First Bookmark"
+      },
+      {
+        "command": "qmark.open2",
+        "title": "Open Second Bookmark"
+      },
+      {
+        "command": "qmark.open3",
+        "title": "Open Thrid Bookmark"
+      },
+      {
+        "command": "qmark.removeItem",
+        "title": "Remove from Explorer Bookmark",
+        "icon": "$(close)"
+      },
+      {
+        "command": "qmark.removeAllItems",
+        "title": "Remove All Items",
+        "icon": "$(trash)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "qmark.refreshEntry",
+          "when": "view == qmark",
+          "group": "navigation"
+        },
+        {
+          "command": "qmark.removeAllItems",
+          "when": "view == qmark",
+          "group": "navigation"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "qmark.addItem"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "qmark.removeItem",
+          "when": "view == qmark"
+        },
+        {
+          "command": "qmark.removeItem",
+          "when": "view == qmark",
+          "group": "inline"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.93.0",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.3.0",
+    "@typescript-eslint/parser": "^8.3.0",
+    "eslint": "^9.9.1",
+    "typescript": "^5.5.4",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  }
+}
