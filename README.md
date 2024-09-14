@@ -2,6 +2,10 @@
 
 QuickMark is a Visual Studio Code extension that allows users to bookmark files within large projects, making it easy to quickly locate frequently accessed files without searching through thousands of files in the project structure.
 
+
+https://github.com/user-attachments/assets/2af8a865-2e5c-4f06-b70d-d39afc89393a
+
+
 <br>
 
 ## Features
