@@ -3,7 +3,11 @@
   "displayName": "QuickMark",
   "description": "QuickMark is a vscode extension that allows users to bookmark files within projects, making it easy to quickly locate frequently accessed files without searching through thousands of files in the project structure.",
   "version": "0.0.1",
-  "publisher": "Yonesj",
+  "publisher": "yabal",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Yonesj/QuickMark.git"
+  },
   "engines": {
     "vscode": "^1.93.0"
   },
